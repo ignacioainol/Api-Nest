@@ -29,15 +29,13 @@ export class TasksController {
     return this.taskService.createTask(task);
   }
 
+  @Put(':id')
+  updateTask(@Body() task: CreateTaskDto, @Param('id') id): Promise<string> {
+    return this.taskService.updateTask(id, task);
+  }
+
   @Delete(':id')
   deleteTask(@Param('id') id): Promise<Task> {
     return this.taskService.deleteTask(id);
-  }
-
-  @Put(':id')
-  updateTask(@Body() task: CreateTaskDto, @Param('id') id): string {
-    console.log(task);
-    console.log(id);
-    return 'updating a task';
   }
 }

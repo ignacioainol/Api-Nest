@@ -21,6 +21,11 @@ export class TasksService {
     return await newTask.save();
   }
 
+  async updateTask(id, task) {
+    const updatedTask = await this.taskModel.findByIdAndUpdate(id, task);
+    return `Task updated: ${updatedTask.id}`;
+  }
+
   async deleteTask(id: string) {
     return await this.taskModel.findByIdAndDelete(id);
   }
