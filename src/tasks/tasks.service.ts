@@ -20,4 +20,8 @@ export class TasksService {
     const newTask = new this.taskModel(task);
     return await newTask.save();
   }
+
+  async deleteTask(id: string) {
+    return await this.taskModel.findByIdAndDelete(id);
+  }
 }
